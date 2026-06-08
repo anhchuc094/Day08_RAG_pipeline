@@ -1,0 +1,11 @@
+# Bắt ca sĩ Long Nhật và Sơn Ngọc Minh trong vụ án ma túy ở TP.HCM
+
+**Source:** VTC News
+
+**URL:** https://vtcnews.vn/bat-ca-si-long-nhat-va-son-ngoc-minh-trong-vu-an-ma-tuy-o-tp-hcm-ar1019053.html
+
+**Crawled:** 2026-06-08
+
+---
+
+Bài báo đưa tin Công an TP.HCM xử lý nhiều đối tượng trong một vụ án liên quan đến ma túy. Trong số những người bị xử lý hình sự có một số người hoạt động trong lĩnh vực nghệ thuật và có ảnh hưởng nhất định trên mạng xã hội, gồm ca sĩ Long Nhật và ca sĩ Sơn Ngọc Minh. Nội dung bài báo nêu rằng hai ca sĩ này bị khởi tố, bắt tạm giam để điều tra về hành vi liên quan đến tổ chức sử dụng trái phép chất ma túy. Bài viết cũng cung cấp thêm thông tin tiểu sử nghệ thuật của Long Nhật, người từng nổi tiếng từ thập niên 1990 với nhiều ca khúc trữ tình, dân ca và nhạc quê hương. Đây là nguồn dữ liệu báo chí phù hợp cho bài toán RAG về các nghệ sĩ Việt Nam liên quan đến ma túy, vì có đủ thông tin về nhân vật, sự kiện, cơ quan xử lý và bối cảnh vụ án.
