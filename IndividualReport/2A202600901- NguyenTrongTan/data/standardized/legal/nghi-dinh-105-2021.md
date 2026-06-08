@@ -1,0 +1,52 @@
+# nghi-dinh-105-2021
+
+**Source:** nghi-dinh-105-2021.pdf
+
+---
+
+CHÍNH PHỦ
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+
+NGHỊ ĐỊNH
+Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống ma tuý
+Số: 105/2021/NĐ-CP
+Ngày 04 tháng 12 năm 2021
+
+Căn cứ Luật Tổ chức Chính phủ ngày 19 tháng 6 năm 2015, sửa đổi bổ sung ngày 22 tháng 11 năm 2019;
+Căn cứ Luật Phòng, chống ma tuý ngày 30 tháng 3 năm 2021;
+Theo đề nghị của Bộ trưởng Bộ Công an;
+Chính phủ ban hành Nghị định quy định chi tiết và hướng dẫn thi hành một số điều của Luật 
+Phòng, chống ma tuý.
+
+CHƯƠNG I: QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi điều chỉnh
+Nghị định này quy định chi tiết và hướng dẫn thi hành:
+1. Điều 11 về phối hợp trong công tác phòng, chống ma tuý;
+2. Điều 13 về kiểm soát các hoạt động hợp pháp liên quan đến ma tuý;
+3. Điều 18 về quản lý người sử dụng trái phép chất ma tuý;
+4. Điều 20 về điều kiện cơ sở xét nghiệm phục vụ quản lý người sử dụng trái phép 
+chất ma tuý.
+
+CHƯƠNG II: PHỐI HỢP TRONG PHÒNG, CHỐNG MA TUÝ
+
+Điều 3. Phối hợp giữa cơ quan chuyên trách phòng, chống tội phạm về ma tuý
+1. Cơ quan chuyên trách phòng, chống tội phạm về ma tuý bao gồm:
+a) Công an nhân dân;
+b) Bộ đội Biên phòng;
+c) Cảnh sát biển;
+d) Hải quan.
+2. Nội dung phối hợp bao gồm: Xây dựng kế hoạch, trao đổi thông tin, điều tra trinh sát, 
+kiểm tra kiểm soát, bắt giữ, xử lý vi phạm.
+
+CHƯƠNG III: QUẢN LÝ NGƯỜI SỬ DỤNG TRÁI PHÉP CHẤT MA TUÝ
+
+Điều 10. Lập hồ sơ quản lý người sử dụng trái phép chất ma tuý
+1. Người bị phát hiện sử dụng trái phép chất ma tuý lần đầu sẽ được lập hồ sơ quản lý 
+tại Ủy ban nhân dân cấp xã nơi người đó cư trú.
+2. Hồ sơ bao gồm: Biên bản vi phạm hành chính, kết quả xét nghiệm, ảnh, vân tay.
+
+Điều 15. Xét nghiệm chất ma tuý
+1. Xét nghiệm được thực hiện bằng phương pháp: Thử nhanh, miễn dịch, sắc ký.
+2. Kết quả xét nghiệm dương tính với chất ma tuý là căn cứ để lập hồ sơ quản lý.
