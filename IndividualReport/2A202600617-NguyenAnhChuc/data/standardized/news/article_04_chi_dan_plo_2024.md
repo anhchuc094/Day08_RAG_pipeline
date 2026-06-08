@@ -1,0 +1,13 @@
+# Ca sĩ Chi Dân, An Tây và những nghệ sĩ đánh mất sự nghiệp vì ma túy
+
+**Source:** Pháp Luật TP.HCM
+
+**URL:** https://plo.vn/ca-si-chi-dan-an-tay-va-nhung-nghe-si-danh-mat-su-nghiep-vi-ma-tuy-post819930.html
+
+**Crawled:** 2026-06-08
+
+---
+
+Bài báo Pháp Luật TP.HCM ngày 15/11/2024 đưa tin Công an TP.HCM khởi tố, bắt tạm giam ca sĩ Chi Dân và người mẫu An Tây để điều tra về hành vi mua ma túy để tổ chức sử dụng chất cấm. Bài viết nêu Chi Dân tên thật là Nguyễn Trung Hiếu, sinh năm 1989, từng là ca sĩ được yêu thích với nhiều ca khúc phổ biến.
+
+Nội dung bài cũng tổng hợp thêm một số trường hợp nghệ sĩ liên quan ma túy như Lệ Hằng, Hữu Tín, Châu Việt Cường và Hiệp Gà, qua đó nhấn mạnh tác động tiêu cực của chất cấm đối với sự nghiệp và hình ảnh của người nổi tiếng. Đây là nguồn phù hợp cho truy vấn về Chi Dân và bối cảnh nghệ sĩ Việt liên quan ma túy.
