@@ -1,0 +1,13 @@
+# Ca sĩ Sơn Ngọc Minh vừa bị bắt vì liên quan đến ma túy là ai?
+
+**Source:** Thanh Niên
+
+**URL:** https://thanhnien.vn/ca-si-son-ngoc-minh-vua-bi-bat-vi-lien-quan-den-ma-tuy-la-ai-18526052012481811.htm
+
+**Crawled:** 2026-06-08
+
+---
+
+Bài báo Thanh Niên giới thiệu bối cảnh cá nhân và sự nghiệp của ca sĩ Sơn Ngọc Minh sau khi anh bị khởi tố, bắt tạm giam vì tham gia đường dây ma túy quy mô lớn. Bài viết cho biết Sơn Ngọc Minh sinh năm 1990 tại Cần Thơ, từng là thành viên nhóm V.Music, sau đó hoạt động solo, làm MC và tham gia một số chương trình truyền hình.
+
+Bài báo cũng nhắc lại thông tin Công an TP.HCM khởi tố 71 bị can về các hành vi mua bán, tàng trữ và tổ chức sử dụng trái phép chất ma túy; trong số đó có hai ca sĩ hoạt động trong giới giải trí là Long Nhật và Sơn Ngọc Minh. Đây là nguồn dùng để bổ sung thông tin nhận diện riêng về Sơn Ngọc Minh.
