@@ -1,56 +1,27 @@
 # RAG Evaluation Results
 
-## Framework sử dụng
+## A/B Comparison
 
-> Ghi rõ framework đã chọn: DeepEval / RAGAS / TruLens
+| Config | Faithfulness | Answer Relevance | Context Recall | Context Precision | Average |
+|---|---:|---:|---:|---:|---:|
+| Hybrid + Reranking | 0.941 | 0.899 | 0.77 | 0.889 | 0.875 |
+| Dense Only | 0.878 | 0.753 | 0.616 | 0.778 | 0.756 |
 
----
+## Best Config
 
-## Overall Scores
+Best average score: **Hybrid + Reranking**.
 
-| Metric | Config A (hybrid + rerank) | Config B (dense-only) | Δ |
-|--------|---------------------------|----------------------|---|
-| Faithfulness | | | |
-| Answer Relevance | | | |
-| Context Recall | | | |
-| Context Precision | | | |
-| **Average** | | | |
+## Bottom 3 Questions
 
----
-
-## A/B Comparison Analysis
-
-**Config A:**
-> Mô tả config ...
-
-**Config B:**
-> Mô tả config ...
-
-**Kết luận:**
-> Config nào tốt hơn? Vì sao? (2-3 câu)
-
----
-
-## Worst Performers (Bottom 3)
-
-| # | Question | Faithfulness | Relevance | Recall | Failure Stage | Root Cause |
-|---|----------|-------------|-----------|--------|---------------|------------|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
-
----
+| ID | Question | Avg | Main Issue |
+|---|---|---:|---|
+| qa_011 | Nghị định 163/2026/NĐ-CP quy định chi tiết và hướng dẫn thi hành những nhóm nội dung nào? | 0.656 | Cần bổ sung context hoặc tăng độ phủ retrieval |
+| qa_007 | Cai nghiện ma túy là quá trình như thế nào? | 0.714 | Cần bổ sung context hoặc tăng độ phủ retrieval |
+| qa_005 | Phòng, chống ma túy được hiểu là gì? | 0.773 | Cần bổ sung context hoặc tăng độ phủ retrieval |
 
 ## Recommendations
 
-### Cải tiến 1
-**Action:**  
-**Expected impact:**  
-
-### Cải tiến 2
-**Action:**  
-**Expected impact:**  
-
-### Cải tiến 3
-**Action:**  
-**Expected impact:**  
+- Chuẩn hóa `expected_chunks` sát câu chữ trong các file Markdown thật.
+- Giảm `top_k` hoặc chunk size nếu context precision còn thấp.
+- Dùng embedding thật và vector store khi môi trường Python/dependencies đã sẵn sàng.
+- Giữ câu trả lời có citation ngắn, rõ và chỉ dựa vào context.

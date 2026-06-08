@@ -1,17 +1,92 @@
 [
   {
-    "question": "Hình phạt cho tội tàng trữ trái phép chất ma tuý theo Điều 249 Bộ luật Hình sự?",
-    "expected_answer": "Phạt tù từ 1 đến 5 năm đối với trường hợp tàng trữ từ 1g đến dưới 5g heroin hoặc cocaine, hoặc chất ma tuý khác với khối lượng tương đương.",
-    "expected_context": "Bộ luật Hình sự 2015, Điều 249"
+    "id": "qa_001",
+    "question": "Luật Phòng, chống ma túy số 120/2025/QH15 quy định phạm vi điều chỉnh những nội dung nào?",
+    "expected_answer": "Luật quy định về phòng, chống ma túy; quản lý người sử dụng trái phép chất ma túy; cai nghiện ma túy; trách nhiệm của cá nhân, gia đình, cơ quan, tổ chức; quản lý nhà nước và hợp tác quốc tế về phòng, chống ma túy.",
+    "expected_chunks": ["phòng, chống ma túy", "quản lý người sử dụng trái phép chất ma túy", "cai nghiện ma túy", "trách nhiệm của cá nhân, gia đình, cơ quan, tổ chức", "hợp tác quốc tế"]
   },
   {
-    "question": "Luật Phòng chống ma tuý 2021 quy định những hình thức cai nghiện nào?",
-    "expected_answer": "Cai nghiện tự nguyện tại gia đình, cai nghiện tự nguyện tại cộng đồng, cai nghiện tự nguyện tại cơ sở cai nghiện, và cai nghiện bắt buộc tại cơ sở cai nghiện.",
-    "expected_context": "Luật Phòng chống ma tuý 2021, Chương V"
+    "id": "qa_002",
+    "question": "Chất ma túy được giải thích như thế nào trong Luật Phòng, chống ma túy?",
+    "expected_answer": "Chất ma túy là chất gây nghiện, chất hướng thần được quy định trong danh mục chất ma túy do Chính phủ ban hành.",
+    "expected_chunks": ["Chất ma túy là chất gây nghiện", "chất hướng thần", "danh mục chất ma túy do Chính phủ ban hành"]
   },
   {
-    "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
-    "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
-    "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+    "id": "qa_003",
+    "question": "Tiền chất được định nghĩa như thế nào?",
+    "expected_answer": "Tiền chất là hóa chất thường được sử dụng trong quá trình điều chế, sản xuất chất ma túy và được quy định trong danh mục tiền chất do Chính phủ ban hành.",
+    "expected_chunks": ["Tiền chất là hóa chất", "điều chế, sản xuất chất ma túy", "danh mục tiền chất do Chính phủ ban hành"]
+  },
+  {
+    "id": "qa_004",
+    "question": "Cây có chứa chất ma túy gồm những loại cây nào?",
+    "expected_answer": "Cây có chứa chất ma túy gồm cây thuốc phiện, cây côca, cây cần sa và các loại cây khác có chứa chất ma túy do Chính phủ quy định.",
+    "expected_chunks": ["cây thuốc phiện", "cây côca", "cây cần sa", "các loại cây khác có chứa chất ma túy"]
+  },
+  {
+    "id": "qa_005",
+    "question": "Phòng, chống ma túy được hiểu là gì?",
+    "expected_answer": "Phòng, chống ma túy là phòng ngừa, ngăn chặn, đấu tranh chống tội phạm và tệ nạn ma túy; đồng thời kiểm soát các hoạt động hợp pháp liên quan đến ma túy.",
+    "expected_chunks": ["phòng ngừa, ngăn chặn", "đấu tranh chống tội phạm", "tệ nạn ma túy", "kiểm soát các hoạt động hợp pháp liên quan đến ma túy"]
+  },
+  {
+    "id": "qa_006",
+    "question": "Người sử dụng trái phép chất ma túy là ai?",
+    "expected_answer": "Người sử dụng trái phép chất ma túy là người có hành vi sử dụng chất ma túy mà không được sự cho phép của người hoặc cơ quan chuyên môn có thẩm quyền và có kết quả xét nghiệm dương tính.",
+    "expected_chunks": ["Người sử dụng trái phép chất ma túy", "không được sự cho phép", "cơ quan chuyên môn có thẩm quyền", "kết quả dương tính"]
+  },
+  {
+    "id": "qa_007",
+    "question": "Cai nghiện ma túy là quá trình như thế nào?",
+    "expected_answer": "Cai nghiện ma túy là quá trình hỗ trợ về y tế, tâm lý, xã hội để giúp người nghiện dừng sử dụng chất ma túy, phục hồi thể chất, tinh thần, nâng cao nhận thức và thay đổi hành vi.",
+    "expected_chunks": ["Cai nghiện ma túy là quá trình", "hỗ trợ về y tế, tâm lý, xã hội", "dừng sử dụng chất ma túy", "phục hồi thể chất, tinh thần", "thay đổi hành vi"]
+  },
+  {
+    "id": "qa_008",
+    "question": "Chính sách của Nhà nước về phòng, chống ma túy ưu tiên nguồn lực cho những khu vực nào?",
+    "expected_answer": "Nhà nước ưu tiên nguồn lực phòng, chống ma túy cho khu vực biên giới, hải đảo, vùng đồng bào dân tộc thiểu số và miền núi, vùng có điều kiện kinh tế - xã hội khó khăn hoặc đặc biệt khó khăn, và địa bàn phức tạp về ma túy.",
+    "expected_chunks": ["Ưu tiên nguồn lực phòng, chống ma túy", "khu vực biên giới, hải đảo", "vùng đồng bào dân tộc thiểu số và miền núi", "địa bàn phức tạp về ma túy"]
+  },
+  {
+    "id": "qa_009",
+    "question": "Nhà nước khuyến khích người nghiện ma túy thực hiện hình thức cai nghiện nào?",
+    "expected_answer": "Nhà nước khuyến khích người nghiện ma túy tự nguyện cai nghiện ma túy, điều trị nghiện bằng thuốc thay thế và khuyến khích các cá nhân, gia đình, cơ quan, tổ chức tham gia hỗ trợ cai nghiện.",
+    "expected_chunks": ["khuyến khích người nghiện ma túy tự nguyện cai nghiện ma túy", "điều trị nghiện bằng thuốc thay thế", "tham gia, hỗ trợ hoạt động cai nghiện ma túy"]
+  },
+  {
+    "id": "qa_010",
+    "question": "Nguồn tài chính cho phòng, chống ma túy gồm những nguồn nào?",
+    "expected_answer": "Nguồn tài chính gồm ngân sách nhà nước, nguồn tài trợ, viện trợ, đầu tư, tặng cho của tổ chức, cá nhân trong và ngoài nước, và chi trả của người nghiện ma túy, gia đình của họ.",
+    "expected_chunks": ["Ngân sách nhà nước", "Nguồn tài trợ, viện trợ, đầu tư, tặng cho", "Chi trả của người nghiện ma túy, gia đình của họ"]
+  },
+  {
+    "id": "qa_011",
+    "question": "Nghị định 163/2026/NĐ-CP quy định chi tiết và hướng dẫn thi hành những nhóm nội dung nào?",
+    "expected_answer": "Nghị định quy định chi tiết, hướng dẫn thi hành các nội dung về phối hợp phòng, chống tội phạm ma túy, kiểm soát hoạt động hợp pháp liên quan đến ma túy, quản lý người sử dụng trái phép chất ma túy, cai nghiện ma túy và quản lý sau cai nghiện.",
+    "expected_chunks": ["phối hợp phòng, chống ma túy", "kiểm soát các hoạt động hợp pháp liên quan đến ma túy", "quản lý người sử dụng trái phép chất ma túy", "cai nghiện ma túy", "quản lý sau cai nghiện ma túy"]
+  },
+  {
+    "id": "qa_012",
+    "question": "Theo Nghị định 163/2026/NĐ-CP, công tác quản lý người sử dụng trái phép chất ma túy phải bảo đảm nguyên tắc gì?",
+    "expected_answer": "Công tác quản lý phải được tiến hành công khai, khách quan, đúng quy định pháp luật; tôn trọng và bảo đảm quyền, lợi ích hợp pháp của người sử dụng trái phép chất ma túy và gia đình họ.",
+    "expected_chunks": ["quản lý người sử dụng trái phép chất ma túy", "công khai, khách quan", "đúng quy định của pháp luật", "bảo đảm quyền và lợi ích hợp pháp"]
+  },
+  {
+    "id": "qa_013",
+    "question": "Nghị định 28/2026/NĐ-CP ban hành những danh mục nào?",
+    "expected_answer": "Nghị định ban hành các danh mục chất ma túy và tiền chất, gồm Danh mục I, II, III và IV; trong đó Danh mục IV là các tiền chất.",
+    "expected_chunks": ["Danh mục I", "Danh mục II", "Danh mục III", "Danh mục IV", "Các tiền chất"]
+  },
+  {
+    "id": "qa_014",
+    "question": "Danh mục I trong Nghị định 28/2026/NĐ-CP là gì?",
+    "expected_answer": "Danh mục I là các chất ma túy tuyệt đối cấm sử dụng trong y học và đời sống xã hội; chỉ được sử dụng trong nghiên cứu, kiểm nghiệm, giám định hoặc mục đích quốc phòng, an ninh theo quy định đặc biệt.",
+    "expected_chunks": ["Danh mục I", "tuyệt đối cấm sử dụng trong y học", "đời sống xã hội", "nghiên cứu, kiểm nghiệm, giám định", "mục đích quốc phòng, an ninh"]
+  },
+  {
+    "id": "qa_015",
+    "question": "Danh mục IV trong Nghị định 28/2026/NĐ-CP gồm những loại tiền chất nào?",
+    "expected_answer": "Danh mục IV gồm các tiền chất, trong đó có IVA là tiền chất thiết yếu không có ứng dụng hợp pháp trong y học và đời sống xã hội, IVB là tiền chất có ứng dụng hợp pháp, và IVC là hóa chất, dung môi, chất xúc tác dùng trong quá trình sản xuất chất ma túy.",
+    "expected_chunks": ["Danh mục IV: Các tiền chất", "IVA", "IVB", "IVC", "hóa chất, dung môi, chất xúc tác", "sản xuất chất ma túy"]
   }
 ]

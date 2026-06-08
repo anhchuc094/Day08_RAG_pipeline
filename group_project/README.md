@@ -1,189 +1,204 @@
-# Bài Tập Nhóm - RAG Evaluation Pipeline
+# Bài Tập Nhóm — Search Engine / RAG Chatbot
 
-## Sản Phẩm Đã Chọn
+## Mục Tiêu
 
-Theo README gốc, bài nhóm chỉ cần xây dựng **1 trong 2 sản phẩm**. Nhóm chọn:
+Sau khi hoàn thành bài cá nhân, nhóm ngồi lại để xây dựng **1 trong 2 sản phẩm**:
 
-```text
-Yêu cầu 2: RAG Evaluation Pipeline
+---
+
+## Yêu cầu 1:  Sản phẩm nhóm RAG Chatbot
+
+Xây dựng chatbot trả lời câu hỏi về pháp luật ma tuý và tin tức liên quan.
+
+**Yêu cầu:**
+- Giao diện chat (Streamlit / Gradio / Chainlit)
+- Trả lời có citation (dựa trên Task 10)
+- Hỗ trợ follow-up questions (conversation memory)
+- Hiển thị source documents đã dùng
+
+**Stack gợi ý:**
+```
+Chainlit/Streamlit → Retrieval (Task 9) → Generation (Task 10) → Display
 ```
 
-Mục tiêu là đánh giá pipeline RAG bằng golden dataset, 4 nhóm metric và A/B comparison giữa ít nhất 2 cấu hình retrieval/generation.
+---
 
-Framework được chọn theo README mẫu:
+## Yêu cầu 2: RAG Evaluation Pipeline
 
-```text
-DeepEval
+Sử dụng **1 trong 3 framework** sau để evaluate pipeline RAG của nhóm:
+
+### Framework lựa chọn
+
+| Framework | Cài đặt | Đặc điểm |
+|-----------|---------|-----------|
+| [DeepEval](https://github.com/confident-ai/deepeval) | `pip install deepeval` | Nhiều metric built-in, dễ integrate với pytest |
+| [RAGAS](https://github.com/explodinggradients/ragas) | `pip install ragas` | Chuẩn industry cho RAG eval, 3 trục chính |
+| [TruLens](https://github.com/truera/trulens) | `pip install trulens` | Dashboard UI, feedback functions mạnh |
+
+### Yêu cầu Evaluation
+
+1. **Tạo Golden Dataset** — tối thiểu 15 cặp Q&A (question, expected_answer, expected_context)
+2. **Chạy evaluation** trên toàn bộ golden dataset với các metrics sau:
+   - **Faithfulness** — câu trả lời có bám đúng context không?
+   - **Answer Relevance** — câu trả lời có đúng câu hỏi không?
+   - **Context Recall** — retriever có lấy đủ evidence không?
+   - **Context Precision** — trong context lấy về, bao nhiêu % thực sự hữu ích?
+3. **So sánh A/B** — chạy eval trên ít nhất 2 config khác nhau (ví dụ: có reranking vs không reranking, hoặc hybrid vs dense-only)
+4. **Báo cáo** — bảng điểm + phân tích worst performers + đề xuất cải tiến
+
+### Code mẫu — DeepEval
+
+```python
+from deepeval import evaluate
+from deepeval.metrics import (
+    FaithfulnessMetric,
+    AnswerRelevancyMetric,
+    ContextualRecallMetric,
+    ContextualPrecisionMetric,
+)
+from deepeval.test_case import LLMTestCase
+
+# Tạo test cases từ golden dataset
+test_cases = []
+for item in golden_dataset:
+    result = rag_pipeline.generate_with_citation(item["question"])
+    test_case = LLMTestCase(
+        input=item["question"],
+        actual_output=result["answer"],
+        expected_output=item["expected_answer"],
+        retrieval_context=[c["content"] for c in result["sources"]],
+    )
+    test_cases.append(test_case)
+
+# Chạy evaluation
+metrics = [
+    FaithfulnessMetric(threshold=0.7),
+    AnswerRelevancyMetric(threshold=0.7),
+    ContextualRecallMetric(threshold=0.7),
+    ContextualPrecisionMetric(threshold=0.7),
+]
+
+results = evaluate(test_cases, metrics)
 ```
 
-## Cấu Trúc Thư Mục
+### Code mẫu — RAGAS
 
-```text
-group_project/
-├── config/
-│   └── settings.py
-├── data/
-│   └── sample_corpus.json
-├── rag/
-│   ├── documents.py
-│   ├── generator.py
-│   └── retriever.py
-├── evaluation/
-│   ├── golden_dataset.json
-│   ├── eval_pipeline.py
-│   └── results.md
-├── phan_cong_nhom.md
-└── README.md
-```
+```python
+from ragas import evaluate
+from ragas.metrics import (
+    faithfulness,
+    answer_relevancy,
+    context_recall,
+    context_precision,
+)
+from datasets import Dataset
 
-Code nhóm không sửa hoặc phụ thuộc trực tiếp vào folder `src/`. Module `group_project/rag` chỉ đóng vai trò pipeline tối giản để chạy evaluation.
-
-## Dữ Liệu
-
-Pipeline ưu tiên đọc dữ liệu trong:
-
-```text
-data/standardized/
-```
-
-Các định dạng đang được hỗ trợ:
-
-- `.md`
-- `.txt`
-- `.json`
-- `.doc`
-- `.docx`
-- `.pdf`
-
-Với `.doc/.docx/.pdf`, loader sẽ thử dùng `markitdown`. Nếu chưa đọc được dữ liệu thật, pipeline fallback sang:
-
-```text
-group_project/data/sample_corpus.json
-```
-
-Hiện `data/standardized/` đã có 3 file `.doc`, nên phần loader đã được sửa để scan thêm định dạng này.
-
-## Golden Dataset
-
-File:
-
-```text
-group_project/evaluation/golden_dataset.json
-```
-
-Mỗi item có format:
-
-```json
-{
-  "id": "qa_001",
-  "question": "Câu hỏi",
-  "expected_answer": "Câu trả lời kỳ vọng",
-  "expected_chunks": ["chunk/evidence cần được truy xuất"]
+# Chuẩn bị data
+eval_data = {
+    "question": [],
+    "answer": [],
+    "contexts": [],
+    "ground_truth": [],
 }
+
+for item in golden_dataset:
+    result = rag_pipeline.generate_with_citation(item["question"])
+    eval_data["question"].append(item["question"])
+    eval_data["answer"].append(result["answer"])
+    eval_data["contexts"].append([c["content"] for c in result["sources"]])
+    eval_data["ground_truth"].append(item["expected_answer"])
+
+dataset = Dataset.from_dict(eval_data)
+
+# Chạy evaluation
+result = evaluate(
+    dataset,
+    metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
+)
+print(result.to_pandas())
 ```
 
-Dataset hiện có 15 Q&A.
+### Code mẫu — TruLens
 
-## Evaluation Framework Và Metrics
+```python
+from trulens.apps.custom import TruCustomApp, instrument
+from trulens.core import Feedback
+from trulens.providers.openai import OpenAI as TruOpenAI
 
-Script ưu tiên dùng DeepEval theo code mẫu trong README gốc:
+provider = TruOpenAI()
 
-- `FaithfulnessMetric`
-- `AnswerRelevancyMetric`
-- `ContextualRecallMetric`
-- `ContextualPrecisionMetric`
+# Define feedback functions
+f_faithfulness = Feedback(provider.groundedness_measure_with_cot_reasons).on_output()
+f_relevance = Feedback(provider.relevance).on_input_output()
+f_context_relevance = Feedback(provider.context_relevance).on_input()
 
-Nếu môi trường chưa cài DeepEval hoặc thiếu API key cho LLM judge, script tự fallback sang metric offline để vẫn tạo được report demo. Khi nộp/chạy chính thức, nên chạy được DeepEval.
+# Wrap RAG pipeline
+tru_rag = TruCustomApp(
+    rag_pipeline,
+    app_name="DrugLaw_RAG",
+    feedbacks=[f_faithfulness, f_relevance, f_context_relevance],
+)
 
-4 metric bắt buộc:
+# Run evaluation
+with tru_rag as recording:
+    for item in golden_dataset:
+        rag_pipeline.generate_with_citation(item["question"])
 
-| Metric | Ý nghĩa |
-|---|---|
-| Faithfulness | Câu trả lời có bám vào retrieved context không |
-| Answer Relevance | Câu trả lời có liên quan câu hỏi và expected answer không |
-| Context Recall | Context có lấy được đủ evidence kỳ vọng không |
-| Context Precision | Context truy xuất có tập trung vào evidence cần thiết không |
-
-## A/B Comparison
-
-Script so sánh 2 cấu hình:
-
-| Config | Mô tả |
-|---|---|
-| Hybrid + Reranking | Kết hợp sparse/dense-like retrieval và reranking |
-| Dense Only | Chỉ dùng dense-like token similarity, không reranking |
-
-## Cách Chạy
-
-### 1. Chuẩn bị môi trường
-
-```bash
-pip install -r requirements.txt
+# View dashboard
+from trulens.dashboard import run_dashboard
+run_dashboard()
 ```
 
-DeepEval đã có trong `requirements.txt`:
+### Deliverable Evaluation
 
-```text
-deepeval>=1.0.0
+- [ ] File `group_project/evaluation/golden_dataset.json` — 15+ cặp Q&A
+- [ ] File `group_project/evaluation/eval_pipeline.py` — script chạy evaluation
+- [ ] File `group_project/evaluation/results.md` — bảng điểm + phân tích
+- [ ] So sánh A/B ít nhất 2 configs
+
+---
+
+## Yêu Cầu Chung
+
+1. **Tích hợp pipeline** từ bài cá nhân của các thành viên
+2. **Demo hoạt động được** trong buổi trình bày (chạy local hoặc deploy)
+3. **Evaluation pipeline** chạy được và có báo cáo kết quả
+4. **Code push lên repository** chung của nhóm
+5. **README** mô tả kiến trúc và phân công (điền bên dưới)
+
+---
+
+## Kiến Trúc Hệ Thống
+
+```
+[Vẽ diagram kiến trúc ở đây]
 ```
 
-Nếu máy dùng virtual environment:
-
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 2. Kiểm tra dữ liệu
-
-Đảm bảo các file dữ liệu đã nằm trong:
-
-```text
-data/standardized/
-```
-
-Hiện project có 3 file `.doc` trong thư mục này. Evaluation loader sẽ thử đọc bằng `markitdown`; nếu đọc không được, pipeline tự dùng corpus mẫu để vẫn chạy được.
-
-### 3. Chạy evaluation
-
-```bash
-python -m group_project.evaluation.eval_pipeline
-```
-
-Kết quả được ghi vào:
-
-```text
-group_project/evaluation/results.md
-```
-
-### 4. Kiểm tra golden dataset
-
-Golden dataset phải là câu hỏi thuộc đề tài pháp luật ma túy. Mỗi item cần có:
-
-- `id`
-- `question`
-- `expected_answer`
-- `expected_chunks`
-
-Hiện dataset có 15 câu hỏi đúng domain.
+---
 
 ## Phân Công Công Việc
 
-| Thành viên | Vai trò | Nhiệm vụ | Deliverable | 
-|---|---|---|---|
-| Trần Văn Quang | Data Lead | Tìm dữ liệu, Chuẩn hóa dữ liệu, convert `.doc` sang `.md` | `data/standardized/*.md`, `group_project/tools/convert_doc_to_md.ps1` | 
-| Nguyễn Anh Chức | Retrieval Lead | Loader, chunking, retrieval, cấu hình A/B | `group_project/rag/documents.py`, `group_project/rag/retriever.py`, `group_project/config/settings.py` | 
-| Nguyễn Thành Lam | RAG Runner Lead | Generation có citation, format context | `group_project/rag/generator.py`, `group_project/data/sample_corpus.json` | 
-| Nguyễn Trọng Tấn | Evaluation và Git Lead | Golden dataset, DeepEval, report, README | `group_project/evaluation/`, `group_project/README.md`, `group_project/phan_cong_nhom.md` | 
+| Thành viên | MSSV | Nhiệm vụ | Trạng thái |
+|-----------|------|----------|------------|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
 
-## Checklist
+---
 
-- [x] Chọn 1 sản phẩm: RAG Evaluation Pipeline.
-- [x] Golden dataset có 15 Q&A.
-- [x] Mỗi Q&A có `id`.
-- [x] Mỗi Q&A có `expected_chunks`.
-- [x] Có 4 metric: faithfulness, answer relevance, context recall, context precision.
-- [x] Có A/B comparison ít nhất 2 configs.
-- [x] Có report output trong `results.md`.
-- [x] Có sử dụng code mẫu DeepEval trong `eval_pipeline.py`.
+## Hướng Dẫn Chạy
+
+```bash
+# Cài đặt dependencies
+pip install -r requirements.txt
+
+# Chạy app
+streamlit run app.py
+# hoặc
+chainlit run app.py
+```
+
+---
+
+## Lưu ý: Hãy giữ lại repo này nếu như bạn học track 3 giai đoạn 2, chúng ta sẽ phát triển tiếp dự án lên knowledge graph để khắc phục các câu hỏi hóc búa khi có các câu hỏi khó.
