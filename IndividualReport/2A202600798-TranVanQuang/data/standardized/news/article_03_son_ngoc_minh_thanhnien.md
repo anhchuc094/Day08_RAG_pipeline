@@ -1,0 +1,11 @@
+# Ca sĩ Sơn Ngọc Minh vừa bị bắt vì liên quan đến ma túy là ai?
+
+**Source:** Thanh Niên
+
+**URL:** https://thanhnien.vn/ca-si-son-ngoc-minh-vua-bi-bat-vi-lien-quan-den-ma-tuy-la-ai-18526052012481811.htm
+
+**Crawled:** 2026-06-08
+
+---
+
+Bài báo của Thanh Niên cung cấp thông tin về Sơn Ngọc Minh, cựu thành viên nhóm V.Music, sau khi anh bị khởi tố, bắt tạm giam vì tham gia đường dây ma túy quy mô lớn. Bài viết tóm lược quá trình hoạt động nghệ thuật của nam ca sĩ, bao gồm thời gian tham gia nhóm V.Music, các sản phẩm cá nhân như album và MV, cũng như việc anh từng tham gia phim ảnh, chương trình truyền hình và cuộc thi Đại sứ Áo dài Việt Nam. Nội dung bài báo giúp bổ sung góc nhìn về lý lịch nghệ thuật, quá trình nổi tiếng và sự nghiệp cá nhân của Sơn Ngọc Minh trước khi vướng vòng lao lý. Đây là bài báo phù hợp để đưa vào tập dữ liệu về nghệ sĩ Việt Nam liên quan đến ma túy.
